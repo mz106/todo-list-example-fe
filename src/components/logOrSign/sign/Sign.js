@@ -33,7 +33,7 @@ const Sign = ({ user, setUser }) => {
           placeholder="password"
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button tpye="submit">SignUp</button>
+        <button type="submit">SignUp</button>
       </form>
     </div>
   );
