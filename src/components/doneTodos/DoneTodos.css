@@ -1,0 +1,7 @@
+.done-todo-container {
+  width: 30%;
+  height: 100%;
+  border: 2px solid white;
+  max-height: 1000px;
+  overflow-y: scroll;
+}

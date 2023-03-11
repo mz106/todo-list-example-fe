@@ -1,0 +1,6 @@
+.todo-lists-container {
+  display: flex;
+  justify-content: space-evenly;
+  height: 60vh;
+  border: 2px solid green;
+}

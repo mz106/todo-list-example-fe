@@ -1,0 +1,41 @@
+
+Components:
+    App - holds Components
+    Header - Header
+    Footer - Footer
+    AddTodo - textarea for user to add todos and clear textarea
+    ActiveTodos - list of todos not done/deleted
+    DoneTodos - list of todos done/not deleted
+    Todo - individual todo with message, check done btn and delete btn
+
+
+State List:
+
+    message/setMessage:
+        component declared: App
+        component(s) used in: AddTodo, 
+
+
+
+Adding todos
+
+    1. Type a todo message into a text area
+
+        function: changeHandler
+        state: message/setMessage
+        component: AddTodo
+
+    2. Clear a message if not needed
+
+        function: in onClick
+        state: message/setMessage(string)
+        component declared in: App
+        component used in: AddTodo
+
+    3. Add a message to a todo
+
+
+
+
+
+    4. See a clear text area once todo added

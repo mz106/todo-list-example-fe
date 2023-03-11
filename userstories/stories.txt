@@ -1,0 +1,34 @@
+Todo App stories
+
+General
+
+I want a user to be able to; 
+
+    1. add todos to a list, 
+    2. delete todos from this list,
+    3. mark a todo done to move to a done list
+    4. delete a todo from this done list
+
+Adding todos
+
+The user will be able to;
+
+    1. Type a todo message into a text area
+    2. Clear a message if not needed
+    3. Add a message to a todo
+    4. See a clear text area once todo added
+
+Todo todos
+
+The user will be able to;
+
+    1. Mark a todo as done and move to the done list
+    2. Delete a todo without marking as done
+
+Done todos
+
+The user will be able to;
+
+    1. Delete a todo from the done list
+
+
