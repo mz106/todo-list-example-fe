@@ -10,7 +10,6 @@ import MessageContainer from "./components/messageContainer/MessageContainer";
 
 import { getTokenFromCookie } from "./common";
 import { authCheck } from "./utils/user";
-import { getAllUserActiveTodos } from "./utils/todo";
 
 function App() {
   const [activeTodos, setActiveTodos] = useState([]);
