@@ -5,7 +5,7 @@ export const addActiveTodoToDb = async (todoText, username) => {
     const token = await getTokenFromCookie("jwt_token");
 
     const response = await fetch(
-      `${process.env.REACT_APP_BASE_URL}activetodos/addtodo`,
+      `${process.env.REACT_APP_BASE_URL}/activetodos/addtodo`,
       {
         method: "POST",
         mode: "cors",
@@ -32,7 +32,7 @@ export const addDoneTodoToDb = async (todoText) => {
     const token = await getTokenFromCookie("jwt_token");
 
     const response = await fetch(
-      `${process.env.REACT_APP_BASE_URL}donetodos/adddonetodo`,
+      `${process.env.REACT_APP_BASE_URL}/donetodos/adddonetodo`,
       {
         method: "POST",
         mode: "cors",
@@ -58,7 +58,7 @@ export const deleteActiveOrDoneTodo = async (todo, url) => {
   try {
     const token = await getTokenFromCookie("jwt_token");
 
-    const response = await fetch(`${process.env.REACT_APP_BASE_URL}${url}`, {
+    const response = await fetch(`${process.env.REACT_APP_BASE_URL}/${url}`, {
       method: "DELETE",
       mode: "cors",
       headers: {
