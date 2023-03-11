@@ -4,7 +4,7 @@ import { addActiveTodoToDb } from "../../utils/todo";
 
 import "./AddTodo.css";
 
-const AddTodo = ({ activeTodos, setActiveTodos, user }) => {
+const AddTodo = ({ activeTodos, setActiveTodos, user, setMessage }) => {
   const [text, setText] = useState("");
 
   const textChangeHandler = (e) => {
@@ -16,15 +16,12 @@ const AddTodo = ({ activeTodos, setActiveTodos, user }) => {
   const todoSubmitHandler = async (e) => {
     e.preventDefault();
 
-    const tempObj = {
-      todo: text,
-    };
-
     const newTodo = await addActiveTodoToDb(text, user.username);
     console.log("newTodo.todo: ", newTodo.todo);
     if (newTodo) {
       const tempArr = [...activeTodos, newTodo.todo];
       setActiveTodos(tempArr);
+      setMessage("Todo added to DB");
     }
 
     e.target.reset();

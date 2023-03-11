@@ -8,6 +8,7 @@ const TodoListsContainer = ({
   doneTodos,
   setDoneTodos,
   user,
+  setMessage,
 }) => {
   return (
     <div className="todo-lists-container">
@@ -17,11 +18,13 @@ const TodoListsContainer = ({
         doneTodos={doneTodos}
         setDoneTodos={setDoneTodos}
         user={user}
+        setMessage={setMessage}
       />
       <DoneTodos
         doneTodos={doneTodos}
         setDoneTodos={setDoneTodos}
         user={user}
+        setMessage={setMessage}
       />
     </div>
   );

@@ -1,18 +1,21 @@
 import { useState, useEffect } from "react";
 
+import "./App.css";
+
 import Header from "./components/header/Header";
 import Footer from "./components/footer/Footer";
 import TodoContainer from "./components/todoContainer/TodoContainer";
 import LogOrSignContainer from "./components/logOrSign/logOrSignContainer/LogOrSignContainer";
+import MessageContainer from "./components/messageContainer/MessageContainer";
 
 import { getTokenFromCookie } from "./common";
 import { authCheck } from "./utils/user";
-import { getAllUserActiveTodos } from "./utils/todo";
 
 function App() {
   const [activeTodos, setActiveTodos] = useState([]);
   const [doneTodos, setDoneTodos] = useState([]);
   const [user, setUser] = useState(null);
+  const [message, setMessage] = useState("All is A OK!");
 
   useEffect(() => {
     if (document.cookie) {
@@ -37,13 +40,19 @@ function App() {
   return (
     <>
       <Header user={user} />
-      <LogOrSignContainer user={user} setUser={setUser} />
+      <div className="user-ops-container">
+        <LogOrSignContainer user={user} setUser={setUser} />
+        <MessageContainer message={message} />
+      </div>
+
       <TodoContainer
         activeTodos={activeTodos}
         setActiveTodos={setActiveTodos}
         doneTodos={doneTodos}
         setDoneTodos={setDoneTodos}
         user={user}
+        message={message}
+        setMessage={setMessage}
       />
       <Footer />
     </>

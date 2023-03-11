@@ -10,6 +10,7 @@ const ActiveTodos = ({
   setDoneTodos,
   handleDeleteTodo,
   user,
+  setMessage,
 }) => {
   const handleTick = async (
     e,
@@ -21,11 +22,22 @@ const ActiveTodos = ({
     addDoneTodoToDb
   ) => {
     e.preventDefault();
-    const newDoneTodo = await addDoneTodoToDb(todo);
-    console.log(newDoneTodo);
-    setDoneTodos((prev) => [...prev, todo]);
 
-    setActiveTodos((el) => activeTodos.filter((el) => el !== todo));
+    try {
+      const newDoneTodo = await addDoneTodoToDb(todo);
+
+      if (newDoneTodo.message === "success") {
+        setDoneTodos((prev) => [...prev, todo]);
+
+        setActiveTodos((el) => activeTodos.filter((el) => el !== todo));
+        setMessage("Active todo added to Done");
+      } else {
+        setMessage("Something went wrong");
+        throw new Error("Some error");
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -43,7 +55,8 @@ const ActiveTodos = ({
               setActiveTodos={setActiveTodos}
               user={user}
               deleteFunc={deleteActiveOrDoneTodo}
-              url={"/activetodos/deleteactivetodo"}
+              url={"activetodos/deleteactivetodo"}
+              setMessage={setMessage}
             />
           ))
         : null}

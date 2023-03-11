@@ -4,7 +4,7 @@ import "./DoneTodos.css";
 
 import Todo from "../todo/Todo";
 
-const DoneTodos = ({ doneTodos, setDoneTodos, user }) => {
+const DoneTodos = ({ doneTodos, setDoneTodos, user, setMessage }) => {
   return (
     <div className="done-todo-container">
       {doneTodos
@@ -17,7 +17,8 @@ const DoneTodos = ({ doneTodos, setDoneTodos, user }) => {
               doneTodos={doneTodos}
               user={user}
               deleteFunc={deleteActiveOrDoneTodo}
-              url={"/donetodos/deletedonetodo"}
+              url={"donetodos/deletedonetodo"}
+              setMessage={setMessage}
             />
           ))
         : null}

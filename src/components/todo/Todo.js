@@ -11,8 +11,18 @@ const Todo = ({
   user,
   deleteFunc,
   url,
+  setMessage,
+  setDeletionMessage,
 }) => {
-  console.log("active todos: ", activeTodos);
+  const stateSetters = {
+    setActiveTodos: setActiveTodos,
+    setDoneTodos: setDoneTodos,
+  };
+
+  const state = {
+    activeTodos: activeTodos,
+    doneTodos: doneTodos,
+  };
 
   return (
     <div>
@@ -38,12 +48,13 @@ const Todo = ({
         onClick={(e) =>
           handleDeleteTodo(
             e,
-            activeTodos,
-            setActiveTodos,
+            state,
+            stateSetters,
             todo,
-            user.username,
             deleteFunc,
-            url
+            url,
+            setMessage,
+            setDeletionMessage
           )
         }
       >

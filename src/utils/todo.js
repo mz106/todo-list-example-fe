@@ -4,20 +4,23 @@ export const addActiveTodoToDb = async (todoText, username) => {
   try {
     const token = await getTokenFromCookie("jwt_token");
 
-    const response = await fetch("http://localhost:5001/activetodos/addtodo", {
-      method: "POST",
-      mode: "cors",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: token,
-      },
-      body: JSON.stringify({
-        todo: todoText,
-      }),
-    });
+    const response = await fetch(
+      `${process.env.REACT_APP_BASE_URL}activetodos/addtodo`,
+      {
+        method: "POST",
+        mode: "cors",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: token,
+        },
+        body: JSON.stringify({
+          todo: todoText,
+        }),
+      }
+    );
 
     const data = await response.json();
-    console.log(data);
+
     return data;
   } catch (error) {
     console.log(error);
@@ -29,7 +32,7 @@ export const addDoneTodoToDb = async (todoText) => {
     const token = await getTokenFromCookie("jwt_token");
 
     const response = await fetch(
-      "http://localhost:5001/donetodos/addtonetodo",
+      `${process.env.REACT_APP_BASE_URL}donetodos/adddonetodo`,
       {
         method: "POST",
         mode: "cors",
@@ -53,10 +56,9 @@ export const addDoneTodoToDb = async (todoText) => {
 
 export const deleteActiveOrDoneTodo = async (todo, url) => {
   try {
-    console.log("deleteactivetodohit: ", todo);
     const token = await getTokenFromCookie("jwt_token");
-    console.log(token);
-    const response = await fetch(`http://localhost:5001${url}`, {
+
+    const response = await fetch(`${process.env.REACT_APP_BASE_URL}${url}`, {
       method: "DELETE",
       mode: "cors",
       headers: {
@@ -68,33 +70,15 @@ export const deleteActiveOrDoneTodo = async (todo, url) => {
       }),
     });
 
-    const data = await response.json();
-    console.log(data);
-  } catch (error) {
-    console.log(error);
-  }
-};
+    let deletionSuccess;
 
-// used in useEffect App.js to get all user active todos on render
-export const getAllUserActiveTodos = async () => {
-  try {
-    const token = await getTokenFromCookie("jwt_token");
+    if (response.ok && response.status === 204) {
+      deletionSuccess = 1;
+    } else {
+      deletionSuccess = 0;
+    }
 
-    const response = await fetch(
-      "http//localhost:5001/activetodos/getalluseractivetodos",
-      {
-        method: "GET",
-        mode: "cors",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `${token}`,
-        },
-      }
-    );
-
-    console.log("response getAllUserActiveTodos: ", response);
-    const data = await response.json();
-    console.log("data getAllUserActiveTodos: ", data);
+    return deletionSuccess;
   } catch (error) {
     console.log(error);
   }
