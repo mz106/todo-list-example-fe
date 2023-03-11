@@ -53,9 +53,8 @@ export const addDoneTodoToDb = async (todoText) => {
 
 export const deleteActiveOrDoneTodo = async (todo, url) => {
   try {
-    console.log("deleteactivetodohit: ", todo);
     const token = await getTokenFromCookie("jwt_token");
-    console.log(token);
+
     const response = await fetch(`http://localhost:5001${url}`, {
       method: "DELETE",
       mode: "cors",
@@ -69,7 +68,6 @@ export const deleteActiveOrDoneTodo = async (todo, url) => {
     });
 
     const data = await response.json();
-    console.log(data);
   } catch (error) {
     console.log(error);
   }

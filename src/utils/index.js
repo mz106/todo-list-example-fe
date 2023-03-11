@@ -3,7 +3,6 @@ export const handleDeleteTodo = async (
   state,
   setter,
   todo,
-  username,
   deleteFunc,
   url
 ) => {
@@ -11,8 +10,12 @@ export const handleDeleteTodo = async (
   const deletedTodo = await deleteFunc(todo, url);
   console.log("handledeletetodo setters: ", setter);
   if (url === "/activetodos/deleteactivetodo") {
-    await setter.setActiveTodos((el) => state.filter((el) => el !== todo));
+    await setter.setActiveTodos((el) =>
+      state.activeTodos.filter((el) => el !== todo)
+    );
   } else if (url === "/donetodos/deletedonetodo") {
-    await setter.setDoneTodos((el) => state.filter((el) => el !== todo));
+    await setter.setDoneTodos((el) =>
+      state.doneTodos.filter((el) => el !== todo)
+    );
   }
 };
