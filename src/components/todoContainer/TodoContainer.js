@@ -9,6 +9,8 @@ const TodoContainer = ({
   doneTodos,
   setDoneTodos,
   user,
+  message,
+  setMessage,
 }) => {
   return (
     <div class="todo-container">
@@ -23,6 +25,8 @@ const TodoContainer = ({
         activeTodos={activeTodos}
         setActiveTodos={setActiveTodos}
         user={user}
+        message={message}
+        setMessage={setMessage}
       />
     </div>
   );
