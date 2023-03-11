@@ -24,6 +24,7 @@ const TodoListsContainer = ({
         doneTodos={doneTodos}
         setDoneTodos={setDoneTodos}
         user={user}
+        setMessage={setMessage}
       />
     </div>
   );

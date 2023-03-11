@@ -11,6 +11,8 @@ const Todo = ({
   user,
   deleteFunc,
   url,
+  setMessage,
+  setDeletionMessage,
 }) => {
   const stateSetters = {
     setActiveTodos: setActiveTodos,
@@ -44,7 +46,16 @@ const Todo = ({
       ) : null}
       <button
         onClick={(e) =>
-          handleDeleteTodo(e, state, stateSetters, todo, deleteFunc, url)
+          handleDeleteTodo(
+            e,
+            state,
+            stateSetters,
+            todo,
+            deleteFunc,
+            url,
+            setMessage,
+            setDeletionMessage
+          )
         }
       >
         Delete
