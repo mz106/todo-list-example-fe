@@ -67,7 +67,15 @@ export const deleteActiveOrDoneTodo = async (todo, url) => {
       }),
     });
 
-    const data = await response.json();
+    let deletionSuccess;
+
+    if (response.ok && response.status === 204) {
+      deletionSuccess = 1;
+    } else {
+      deletionSuccess = 0;
+    }
+
+    return deletionSuccess;
   } catch (error) {
     console.log(error);
   }

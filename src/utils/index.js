@@ -8,14 +8,16 @@ export const handleDeleteTodo = async (
 ) => {
   e.preventDefault();
   const deletedTodo = await deleteFunc(todo, url);
-  console.log("handledeletetodo setters: ", setter);
-  if (url === "/activetodos/deleteactivetodo") {
+
+  if (deletedTodo > 0 && url === "/activetodos/deleteactivetodo") {
     await setter.setActiveTodos((el) =>
       state.activeTodos.filter((el) => el !== todo)
     );
-  } else if (url === "/donetodos/deletedonetodo") {
+  } else if (deletedTodo > 0 && url === "/donetodos/deletedonetodo") {
     await setter.setDoneTodos((el) =>
       state.doneTodos.filter((el) => el !== todo)
     );
+  } else {
+    console.log("doesn't exist");
   }
 };

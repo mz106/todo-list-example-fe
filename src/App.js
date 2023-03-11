@@ -37,7 +37,10 @@ function App() {
   return (
     <>
       <Header user={user} />
-      <LogOrSignContainer user={user} setUser={setUser} />
+      <div className="user-ops-container">
+        <LogOrSignContainer user={user} setUser={setUser} />
+      </div>
+
       <TodoContainer
         activeTodos={activeTodos}
         setActiveTodos={setActiveTodos}
