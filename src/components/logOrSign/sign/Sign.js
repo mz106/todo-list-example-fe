@@ -10,7 +10,6 @@ const Sign = ({ user, setUser }) => {
     e.preventDefault();
     try {
       const userData = await registerUser(e, username, password);
-      console.log("userData: ", userData);
 
       if (userData.message === "success") {
         setUser(userData.user);

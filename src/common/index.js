@@ -6,18 +6,15 @@ export const writeCookie = (key, value, days = 365) => {
   const cookie = (document.cookie =
     key + "=" + value + "; expires" + date.toGMTString() + "; path=/");
 
-  console.log("cookie in utils/index.js: ", cookie);
-
   return cookie;
 };
 
 export const getTokenFromCookie = (cookieName) => {
   const expression = new RegExp(`(?<=${cookieName}=)[^;]*`);
-  console.log(expression);
 
   try {
     const cookie = document.cookie.match(expression)[0];
-    console.log(cookie);
+
     return cookie;
   } catch {
     console.log("Cookie not found");
