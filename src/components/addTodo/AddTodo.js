@@ -10,14 +10,13 @@ const AddTodo = ({ activeTodos, setActiveTodos, user, setMessage }) => {
   const textChangeHandler = (e) => {
     e.preventDefault();
     setText(e.target.value);
-    console.log(text);
   };
 
   const todoSubmitHandler = async (e) => {
     e.preventDefault();
 
     const newTodo = await addActiveTodoToDb(text, user.username);
-    console.log("newTodo.todo: ", newTodo.todo);
+
     if (newTodo) {
       const tempArr = [...activeTodos, newTodo.todo];
       setActiveTodos(tempArr);
