@@ -21,6 +21,7 @@ const ActiveTodos = ({
     addDoneTodoToDb
   ) => {
     e.preventDefault();
+    console.log("handletick hot!!!!!");
     const newDoneTodo = await addDoneTodoToDb(todo);
     console.log(newDoneTodo);
     setDoneTodos((prev) => [...prev, todo]);

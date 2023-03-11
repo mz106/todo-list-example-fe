@@ -1,7 +1,7 @@
 export const handleDeleteTodo = async (
   e,
   state,
-  settter,
+  setter,
   todo,
   username,
   deleteFunc,
@@ -9,5 +9,10 @@ export const handleDeleteTodo = async (
 ) => {
   e.preventDefault();
   const deletedTodo = await deleteFunc(todo, url);
-  await settter((el) => state.filter((el) => el !== todo));
+  console.log("handledeletetodo setters: ", setter);
+  if (url === "/activetodos/deleteactivetodo") {
+    await setter.setActiveTodos((el) => state.filter((el) => el !== todo));
+  } else if (url === "/donetodos/deletedonetodo") {
+    await setter.setDoneTodos((el) => state.filter((el) => el !== todo));
+  }
 };

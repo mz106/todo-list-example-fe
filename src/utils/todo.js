@@ -29,7 +29,7 @@ export const addDoneTodoToDb = async (todoText) => {
     const token = await getTokenFromCookie("jwt_token");
 
     const response = await fetch(
-      "http://localhost:5001/donetodos/addtonetodo",
+      "http://localhost:5001/donetodos/adddonetodo",
       {
         method: "POST",
         mode: "cors",

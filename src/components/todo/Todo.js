@@ -12,7 +12,10 @@ const Todo = ({
   deleteFunc,
   url,
 }) => {
-  console.log("active todos: ", activeTodos);
+  const stateSetters = {
+    setActiveTodos: setActiveTodos,
+    setDoneDone: setDoneTodos,
+  };
 
   return (
     <div>
@@ -39,7 +42,7 @@ const Todo = ({
           handleDeleteTodo(
             e,
             activeTodos,
-            setActiveTodos,
+            stateSetters,
             todo,
             user.username,
             deleteFunc,
