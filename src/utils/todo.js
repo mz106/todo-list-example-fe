@@ -17,7 +17,7 @@ export const addActiveTodoToDb = async (todoText, username) => {
     });
 
     const data = await response.json();
-    console.log(data);
+
     return data;
   } catch (error) {
     console.log(error);
