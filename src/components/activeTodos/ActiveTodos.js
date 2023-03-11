@@ -55,7 +55,7 @@ const ActiveTodos = ({
               setActiveTodos={setActiveTodos}
               user={user}
               deleteFunc={deleteActiveOrDoneTodo}
-              url={"/activetodos/deleteactivetodo"}
+              url={"activetodos/deleteactivetodo"}
               setMessage={setMessage}
             />
           ))

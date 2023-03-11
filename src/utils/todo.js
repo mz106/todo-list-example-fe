@@ -4,17 +4,20 @@ export const addActiveTodoToDb = async (todoText, username) => {
   try {
     const token = await getTokenFromCookie("jwt_token");
 
-    const response = await fetch("http://localhost:5001/activetodos/addtodo", {
-      method: "POST",
-      mode: "cors",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: token,
-      },
-      body: JSON.stringify({
-        todo: todoText,
-      }),
-    });
+    const response = await fetch(
+      `${process.env.REACT_APP_BASE_URL}activetodos/addtodo`,
+      {
+        method: "POST",
+        mode: "cors",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: token,
+        },
+        body: JSON.stringify({
+          todo: todoText,
+        }),
+      }
+    );
 
     const data = await response.json();
 
@@ -29,7 +32,7 @@ export const addDoneTodoToDb = async (todoText) => {
     const token = await getTokenFromCookie("jwt_token");
 
     const response = await fetch(
-      "http://localhost:5001/donetodos/adddonetodo",
+      `${process.env.REACT_APP_BASE_URL}donetodos/adddonetodo`,
       {
         method: "POST",
         mode: "cors",
@@ -55,7 +58,7 @@ export const deleteActiveOrDoneTodo = async (todo, url) => {
   try {
     const token = await getTokenFromCookie("jwt_token");
 
-    const response = await fetch(`http://localhost:5001${url}`, {
+    const response = await fetch(`${process.env.REACT_APP_BASE_URL}${url}`, {
       method: "DELETE",
       mode: "cors",
       headers: {
@@ -76,31 +79,6 @@ export const deleteActiveOrDoneTodo = async (todo, url) => {
     }
 
     return deletionSuccess;
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-// used in useEffect App.js to get all user active todos on render
-export const getAllUserActiveTodos = async () => {
-  try {
-    const token = await getTokenFromCookie("jwt_token");
-
-    const response = await fetch(
-      "http//localhost:5001/activetodos/getalluseractivetodos",
-      {
-        method: "GET",
-        mode: "cors",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `${token}`,
-        },
-      }
-    );
-
-    console.log("response getAllUserActiveTodos: ", response);
-    const data = await response.json();
-    console.log("data getAllUserActiveTodos: ", data);
   } catch (error) {
     console.log(error);
   }

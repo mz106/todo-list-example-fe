@@ -15,13 +15,13 @@ export const handleDeleteTodo = async (
   const deletedTodo = await deleteFunc(todo, url);
 
   try {
-    if (deletedTodo > 0 && url === "/activetodos/deleteactivetodo") {
+    if (deletedTodo > 0 && url === "activetodos/deleteactivetodo") {
       console.log("setter in index.js active: ", setter);
       await setActiveTodos((el) =>
         state.activeTodos.filter((el) => el !== todo)
       );
       setMessage("Active todo deleted");
-    } else if (deletedTodo > 0 && url === "/donetodos/deletedonetodo") {
+    } else if (deletedTodo > 0 && url === "donetodos/deletedonetodo") {
       console.log("setter in index.js done: ", setter);
       await setDoneTodos((el) => state.doneTodos.filter((el) => el !== todo));
       setMessage("Done todo deleted");

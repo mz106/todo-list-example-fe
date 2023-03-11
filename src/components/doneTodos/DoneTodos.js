@@ -17,7 +17,7 @@ const DoneTodos = ({ doneTodos, setDoneTodos, user, setMessage }) => {
               doneTodos={doneTodos}
               user={user}
               deleteFunc={deleteActiveOrDoneTodo}
-              url={"/donetodos/deletedonetodo"}
+              url={"donetodos/deletedonetodo"}
               setMessage={setMessage}
             />
           ))
