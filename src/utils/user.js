@@ -3,7 +3,7 @@ import { writeCookie } from "../common";
 export const registerUser = async (e, username, password) => {
   try {
     const response = await fetch(
-      `${process.env.REACT_APP_BASE_URL}users/register`,
+      `${process.env.REACT_APP_BASE_URL}/users/register`,
       {
         method: "POST",
         mode: "cors",
@@ -32,7 +32,7 @@ export const login = async (e, username, password) => {
   console.log("login hit");
   try {
     const response = await fetch(
-      `${process.env.REACT_APP_BASE_URL}users/login`,
+      `${process.env.REACT_APP_BASE_URL}/users/login`,
       {
         method: "POST",
         mode: "cors",
@@ -60,7 +60,7 @@ export const login = async (e, username, password) => {
 export const authCheck = async (jwtToken) => {
   try {
     const response = await fetch(
-      `${process.env.REACT_APP_BASE_URL}users/authcheck`,
+      `${process.env.REACT_APP_BASE_URL}/users/authcheck`,
       {
         method: "GET",
         mode: "cors",
