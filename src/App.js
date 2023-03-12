@@ -41,7 +41,12 @@ function App() {
     <>
       <Header user={user} />
       <div className="user-ops-container">
-        <LogOrSignContainer user={user} setUser={setUser} />
+        <LogOrSignContainer
+          user={user}
+          setUser={setUser}
+          setActiveTodos={setActiveTodos}
+          setDoneTodos={setDoneTodos}
+        />
         <MessageContainer message={message} />
       </div>
 

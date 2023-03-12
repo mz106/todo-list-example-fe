@@ -1,6 +1,7 @@
 import { writeCookie } from "../common";
 
 export const registerUser = async (e, username, password) => {
+  console.log(username, password);
   try {
     const response = await fetch(
       `${process.env.REACT_APP_BASE_URL}/users/register`,
@@ -47,7 +48,7 @@ export const login = async (e, username, password) => {
     );
 
     const data = await response.json();
-
+    console.log("login data: ", data);
     writeCookie("jwt_token", data.user.token, 7);
 
     e.target.reset();
