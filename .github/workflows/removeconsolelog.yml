@@ -1,22 +1,15 @@
-name: Deploy
-on:
-  push:
-    tags:
-      - '*'
-
+name: My Workflow
+on: [push, pull_request]
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-
       - name: Find and Replace
-        uses: jacobtomlinson/gha-find-replace@v2
+        uses: jacobtomlinson/gha-find-replace@v3
         with:
           find: "hello"
           replace: "world"
-          find: "console\.log\(([^)]+)\)"
-          replace: ""
-          regex: true
+          regex: false
 
       # deployment steps
