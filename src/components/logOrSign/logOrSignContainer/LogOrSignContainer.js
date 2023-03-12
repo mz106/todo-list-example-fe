@@ -11,9 +11,16 @@ const LogOrSignContainer = ({
   setActiveTodos,
   setDoneTodos,
 }) => {
+  console.log("logorsign setactivetodos: ", setActiveTodos);
+
   return (
     <>
-      <Log user={user} setUser={setUser} />
+      <Log
+        user={user}
+        setUser={setUser}
+        setActiveTodos={setActiveTodos}
+        setDoneTodos={setDoneTodos}
+      />
       <Sign user={user} setUser={setUser} />
       <LogOut
         setUser={setUser}

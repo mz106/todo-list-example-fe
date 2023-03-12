@@ -33,14 +33,11 @@ export const handleDeleteTodo = async (
 
 export const logOut = (e, setUser, setActiveTodos, setDoneTodos) => {
   e.preventDefault();
-  setUser({
-    username: null,
-    email: null,
-    token: null,
-  });
 
-  setActiveTodos(null);
-  setDoneTodos(null);
+  setUser(null);
+
+  setActiveTodos([]);
+  setDoneTodos([]);
 
   document.cookie =
     "jwt_token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";

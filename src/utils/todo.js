@@ -1,6 +1,7 @@
 import { getTokenFromCookie } from "../common";
 
 export const addActiveTodoToDb = async (todoText, username) => {
+  console.log("addactivetodoto db hit");
   try {
     const token = await getTokenFromCookie("jwt_token");
 
@@ -18,7 +19,7 @@ export const addActiveTodoToDb = async (todoText, username) => {
         }),
       }
     );
-
+    console.log(response);
     const data = await response.json();
 
     return data;
