@@ -18,6 +18,7 @@ function App() {
   const [message, setMessage] = useState("All is A OK!");
 
   console.log("actions test");
+  console.log("hello");
 
   useEffect(() => {
     if (document.cookie) {
