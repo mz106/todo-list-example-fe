@@ -19,6 +19,7 @@ function App() {
 
   console.log("actions test");
   console.log("hello");
+  console.log("hello");
 
   useEffect(() => {
     if (document.cookie) {
