@@ -17,6 +17,8 @@ function App() {
   const [user, setUser] = useState(null);
   const [message, setMessage] = useState("All is A OK!");
 
+  console.log("actions test");
+
   useEffect(() => {
     if (document.cookie) {
       let token = getTokenFromCookie("jwt_token");
